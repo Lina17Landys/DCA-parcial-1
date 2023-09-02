@@ -26,6 +26,15 @@ export class Characters extends HTMLElement {
         }
     }
   
+    mount() {
+        const changeButton =  this.getElementsByClassName("button");
+        this.addEventListener (click); {
+            console.log("hola");
+        }
+       
+    
+    }
+
 
     constructor(){
         super();
@@ -41,7 +50,7 @@ export class Characters extends HTMLElement {
         <link rel="stylesheet" href="index.css">
         <section>
         <h1>Name: ${this.charaName}</h1>
-        <button>Change name</button>
+        <button class="button">Change name</button>
         <p>Species: ${this.charaSpecies}</p>
         <p>Gender: ${this.charaGender}</p>
         <p>House: ${this.charaHouse}</p>
