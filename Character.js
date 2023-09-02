@@ -2,23 +2,23 @@ export class Characters extends HTMLElement {
 
     static get observedAttributes () {
         return ["name", "specie", "gender", "house", "dateOfBirth"];
-        this.render();
+       
     }
-    attributeChangedCallback (newValue, oldValue, name) {
-        switch (render) {
-            case "name": charaName
+    attributeChangedCallback (propName, _, newValue ) {
+        switch (propName) {
+            case "name": this.charaName = newValue
                 break;
 
-                case "specie": charaSpecie
+                case "species": this.charaSpecies = newValue
                 break;
 
-                case "gender": charaGender
+                case "gender": this.charaGender = newValue
                 break;
 
-                case "house": charaHouse
+                case "house": this.charaHouse = newValue
                 break;
 
-                case "dateOfBirth": charaBirth
+                case "dateOfBirth": this.charaBirth = newValue
                 break;
 
             default:
@@ -38,12 +38,15 @@ export class Characters extends HTMLElement {
 
     render(){
         this.shadowRoot.innerHTML = `
+        <link rel="stylesheet" href="index.css">
+        <section>
         <h1>Name: ${this.charaName}</h1>
         <button>Change name</button>
-        <p>Specie: ${this.charaSpecie}</p>
+        <p>Species: ${this.charaSpecies}</p>
         <p>Gender: ${this.charaGender}</p>
         <p>House: ${this.charaHouse}</p>
         <p>Year of birth: ${this.charaBirth}</p>
+        </section>
         `
     }
 }

@@ -2,6 +2,7 @@ import data from "./data.js";
 import { Characters } from "./Character.js";
 console.log(data);
 class App extends HTMLElement {
+    
     constructor(){
         super();
         this.attachShadow({mode:"open"});
@@ -13,8 +14,8 @@ class App extends HTMLElement {
 
     render(){
    const charas = data.map ((chara) => `
-<character-container  name:${chara.name} specie:${chara.specie} 
-gender:${chara.gender} house:${chara.house} Year of birth:${chara.charaBirth}
+<character-container  name=${chara.name} species=${chara.species} 
+gender=${chara.gender} house= ${chara.house} Year of birth=${chara.charaBirth}
 ></character-container>`
 
     )
