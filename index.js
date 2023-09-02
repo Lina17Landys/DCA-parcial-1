@@ -1,8 +1,6 @@
 import data from "./data.js";
-import { character } from "./Character.js";
+import { Characters } from "./Character.js";
 console.log(data);
-
-
 class App extends HTMLElement {
     constructor(){
         super();
@@ -14,10 +12,17 @@ class App extends HTMLElement {
     }
 
     render(){
-        this.shadowRoot.innerHTML = `
-        <p>hola<p>
-        `
+   const charas = data.map ((chara) => `
+<character-container  name:${chara.name} specie:${chara.specie} 
+gender:${chara.gender} house:${chara.house} Year of birth:${chara.charaBirth}
+></character-container>`
+
+    )
+    const charasJoined = charas.join("");
+    this.shadowRoot.innerHTML = `${charasJoined}`;
     }
 }
 
-customElements.define("app-container", App);
+
+
+customElements.define("app-container", App)
